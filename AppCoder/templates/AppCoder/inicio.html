@@ -1,0 +1,39 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+    <h1><i>Todo comienza con un lugar</i></h1>
+
+
+    <h3>Buscador de destinos:</h3>
+
+    <form action="/AppCoder/buscar/" method="GET">
+
+        <input type="text" name="nombre" id="nombre">
+
+        <input type="submit" value="Buscar">
+
+
+
+
+    </form>
+
+    
+
+    {% if destino %}
+
+    <p>Estas buscando el destino: {{nombre}}</p>
+
+    <ul>
+	{% for destino in destino %}
+		<li> Destino: {{destino.nombre}} </li>
+		<li> Pais: {{destino.pais}} </li>
+	{% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+{% endblock %}
